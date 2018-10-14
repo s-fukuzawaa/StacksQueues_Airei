@@ -1,6 +1,5 @@
 import java.util.Iterator;
 
-import StringQueue.Node;
 
 public class Deque<Item> implements Iterable<Item>
 {
