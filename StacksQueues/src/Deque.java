@@ -1,5 +1,7 @@
 import java.util.Iterator;
 
+import StringQueue.Node;
+
 public class Deque<Item> implements Iterable<Item>
 {
 	private class Node
@@ -11,31 +13,22 @@ public class Deque<Item> implements Iterable<Item>
 	
 	private Node head;
 	private Node tail;
+	private int count;
 	
     public Deque()
     {
-    	//
+    	this.count=0;
 	}
     
     public boolean isEmpty()
     {
-    	if(head==null)
-    	{
-    		return true;
-    	}
-    	return false;
+    	
+    	return head==null;
     }
  
     
     public int size()
     {
-        int count=1;
-        Node temp=head;
-        while(temp.next!=null)
-        {
-        	count ++;
-        	temp=temp.next;
-        }
         return count;
     }
     
@@ -61,8 +54,21 @@ public class Deque<Item> implements Iterable<Item>
 	    	else
 	    	{
 	    		head.previous=plus;
-	    		head=plus;
+	    		plus.next=head;
+	    		
+	    		Node temp2=tail;
+				Node temp3=temp2.previous;
+
+				while(temp3.previous!=null)
+				{
+					temp2=temp3.previous;
+					temp3=temp2;
+					
+				}
+				head=temp3;	
 	    	}
+				this.count++;
+	    	
 	    }
 	    	
     }
@@ -89,8 +95,22 @@ public class Deque<Item> implements Iterable<Item>
 	    	else
 	    	{
 	    		tail.next=add;
-	    		tail=add;
+	    		add.previous=tail;
+	    		
+	    		Node temp2=head;
+				Node temp3=temp2.next;
+
+				while(temp3.next!=null)
+				{
+					temp2=temp3.next;
+					temp3=temp2;
+					
+				}
+				tail=temp3;
+				
+
 	    	}
+	    	count++;
 	    }
     	
     }
@@ -103,13 +123,14 @@ public class Deque<Item> implements Iterable<Item>
     	}
     	else
     	{
-    		Node temp=new Node();
-	        temp.item=head.next.item;
-	        temp.next=head.next.next;
-	        Item result=head.item;
-	        head=null;
-	        head=temp;
-	        return result;
+    		count--;
+    		Item i=head.item;
+    		head=head.next;
+    		if(head==null)
+    		{
+    			tail=null;
+    		}
+    		return i;
     	}
 	        
     }
@@ -122,13 +143,14 @@ public class Deque<Item> implements Iterable<Item>
     	}
     	else
     	{
-        	Node temp=new Node();
-            temp.item=tail.previous.item;
-            temp.previous=tail.previous.previous;
-            Item result=tail.item;
-            tail=null;
-            tail=temp;
-            return result;
+    		count--;
+    		Item i=tail.item;
+    		tail=tail.previous;
+    		if(tail==null)
+    		{
+    			head=null;
+    		}
+    		return i;
     	}
      }
     
@@ -140,8 +162,13 @@ public class Deque<Item> implements Iterable<Item>
     public static void main (String[] args)
     {
     	Deque<String> d=new Deque<String>();
-    	d.addFirst("no");
-    	d.addFirst("more");
-    	d.addFirst("tears");
+    	d.addLast("no");
+    	d.addLast("more");
+    	d.addLast("tears");
+    	d.addLast("left");
+    	d.addFirst("Grande");
+    	d.addFirst("Ariana");
+    	d.removeFirst();
+    	d.removeLast();
     }
  }
