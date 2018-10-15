@@ -102,14 +102,20 @@ public class Deque<Item> implements Iterable<Item>
     	else
     	{
     		count--;
-    		Item i=head.item;
-    		head=head.next;
-    		head.previous=null;
-    		if(head==null)
+    		if(count==0)
     		{
+    			head=null;
     			tail=null;
+    			return null;
     		}
-    		return i;
+    		else
+    		{
+    			Item i=head.item;
+    			head=head.next;
+        		head.previous=null;
+        		return i;
+    		}
+    		
     	}
 	        
     }
@@ -123,14 +129,21 @@ public class Deque<Item> implements Iterable<Item>
     	else
     	{
     		count--;
-    		Item i=tail.item;
-    		tail=tail.previous;
-    		tail.next=null;
-    		if(tail==null)
+    		if(count==0)
     		{
     			head=null;
+    			tail=null;
+    			return null;
     		}
-    		return i;
+    		
+    		else
+    		{
+    			Item i=tail.item;
+    			tail=tail.previous;
+        		tail.next=null;
+        		return i;
+    		}
+    		
     	}
      }
     
