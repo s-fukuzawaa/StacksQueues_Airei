@@ -42,8 +42,6 @@ public class Deque<Item> implements Iterable<Item>
 	    {
 	    	Node plus= new Node();
 	    	plus.item=item;
-	    	plus.next=null;
-	    	plus.previous=null;
 	    	
 	    	if(head==null)
 	    	{
@@ -55,8 +53,7 @@ public class Deque<Item> implements Iterable<Item>
 	    		head.previous=plus;
 	    		plus.next=head;
 	    		
-	    		Node temp2=head.previous;
-				head=temp2;	
+	    		head=head.previous;
 	    	}
 				this.count++;
 	    	
@@ -75,8 +72,6 @@ public class Deque<Item> implements Iterable<Item>
 	    {
 	    	Node add= new Node();
 	    	add.item=item;
-	    	add.next=null;
-	    	add.previous=null;
 	    	
 	    	if(head==null)
 	    	{
@@ -88,8 +83,8 @@ public class Deque<Item> implements Iterable<Item>
 	    		tail.next=add;
 	    		add.previous=tail;
 	    		
-	    		Node temp2=tail.next;
-				tail=temp2;
+	    		tail=tail.next;
+				
 				
 
 	    	}
