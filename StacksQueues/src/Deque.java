@@ -171,12 +171,12 @@ public class Deque<Item> implements Iterable<Item>
 			{
 				return null;
 			}
+			
 			else
 			{
-				Item i= current.next.item;
+				Item i=current.item;
 				current=current.next;
-				return i;
-			}
+				return i;			}
 		}
     	
     }
