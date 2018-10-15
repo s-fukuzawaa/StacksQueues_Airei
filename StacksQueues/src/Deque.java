@@ -156,7 +156,7 @@ public class Deque<Item> implements Iterable<Item>
 		@Override
 		public boolean hasNext() {
 			// TODO Auto-generated method stub
-			if(curnum>0)
+			if(curnum>1)
 			{
 				curnum--;
 				return true;
