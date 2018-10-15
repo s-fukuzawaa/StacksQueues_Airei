@@ -104,9 +104,10 @@ public class Deque<Item> implements Iterable<Item>
     		count--;
     		if(count==0)
     		{
+    			Item i=head.item;
     			head=null;
     			tail=null;
-    			return null;
+    			return i;
     		}
     		else
     		{
@@ -131,9 +132,10 @@ public class Deque<Item> implements Iterable<Item>
     		count--;
     		if(count==0)
     		{
+    			Item i=tail.item;
     			head=null;
     			tail=null;
-    			return null;
+    			return i;
     		}
     		
     		else
@@ -155,13 +157,13 @@ public class Deque<Item> implements Iterable<Item>
     public static void main (String[] args)
     {
     	Deque<String> d=new Deque<String>();
-    	d.addLast("no");
+    	/*d.addLast("no");
     	d.addLast("more");
     	d.addLast("tears");
     	d.addLast("left");
-    	d.addFirst("Grande");
+    	d.addFirst("Grande");*/
     	d.addFirst("Ariana");
-    	d.removeFirst();
+    	d.removeFirst();/*
     	d.removeLast();
     	d.removeLast();
     	d.removeLast();
@@ -173,6 +175,6 @@ public class Deque<Item> implements Iterable<Item>
     	d.addLast("I'm");
     	d.addLast("not");
     	d.addFirst("Sam");
-    	d.addLast("the only one");
+    	d.addLast("the only one");*/
     }
  }
