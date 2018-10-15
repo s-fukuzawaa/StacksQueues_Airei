@@ -135,7 +135,7 @@ public class Deque<Item> implements Iterable<Item>
     			Item i=tail.item;
     			head=null;
     			tail=null;
-    			return i;
+    			return i;//
     		}
     		
     		else
