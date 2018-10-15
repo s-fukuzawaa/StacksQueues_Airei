@@ -148,33 +148,56 @@ public class Deque<Item> implements Iterable<Item>
     		
     	}
      }
+    private class DequeIterator implements Iterator<Item>
+    {
+    	Node current=head;
+    	int curnum=count;
+    	
+		@Override
+		public boolean hasNext() {
+			// TODO Auto-generated method stub
+			if(curnum>0)
+			{
+				curnum--;
+				return true;
+			}
+			return false;
+		}
+
+		@Override
+		public Item next() {
+			// TODO Auto-generated method stub
+			if(current.next==null)
+			{
+				return null;
+			}
+			else
+			{
+				Item i= current.next.item;
+				current=current.next;
+				return i;
+			}
+		}
+    	
+    }
     
     public Iterator<Item> iterator()
     {
-        throw new UnsupportedOperationException();
+        return new DequeIterator();
     }
     
     public static void main (String[] args)
     {
     	Deque<String> d=new Deque<String>();
-    	/*d.addLast("no");
+    	d.addLast("no");
     	d.addLast("more");
     	d.addLast("tears");
     	d.addLast("left");
-    	d.addFirst("Grande");*/
-    	d.addFirst("Ariana");
-    	d.removeFirst();/*
-    	d.removeLast();
-    	d.removeLast();
-    	d.removeLast();
-    	d.removeLast();
-    	d.removeLast();
-    	d.addLast("I");
-    	d.addFirst("Smith");
-    	d.addLast("know");
-    	d.addLast("I'm");
-    	d.addLast("not");
-    	d.addFirst("Sam");
-    	d.addLast("the only one");*/
+    	Iterator<String> st=d.iterator();
+    	while(st.hasNext())
+    	{
+    		String element= st.next();
+    		System.out.println(element);
+    	}
     }
  }
