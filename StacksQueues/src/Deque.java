@@ -150,18 +150,19 @@ public class Deque<Item> implements Iterable<Item>
      }
     private class DequeIterator implements Iterator<Item>
     {
-    	Node current=head;
-    	int curnum=count;
+    	private Node current=head;
     	
 		@Override
 		public boolean hasNext() {
 			// TODO Auto-generated method stub
-			if(curnum>0)
+		
+			if(current==null)
 			{
-				curnum--;
-				return true;
+				current=head;
+				return false;
 			}
-			return false;
+			
+			return true;
 		}
 
 		@Override
@@ -191,6 +192,12 @@ public class Deque<Item> implements Iterable<Item>
     	while(st.hasNext())
     	{
     		String element= st.next();
+    		System.out.println(element);
+    	}
+    	Iterator<String> s=d.iterator();
+    	while(s.hasNext())
+    	{
+    		String element= s.next();
     		System.out.println(element);
     	}
     }
