@@ -158,7 +158,6 @@ public class Deque<Item> implements Iterable<Item>
 		
 			if(current==null)
 			{
-				current=head;
 				return false;
 			}
 			
@@ -186,19 +185,16 @@ public class Deque<Item> implements Iterable<Item>
     	Deque<String> d=new Deque<String>();
     	d.addLast("no");
     	d.addLast("more");
-    	d.addLast("tears");
-    	d.addLast("left");
+    	d.addLast("Ariana");
+    	d.addLast("Grande");
+
     	Iterator<String> st=d.iterator();
-    	while(st.hasNext())
-    	{
-    		String element= st.next();
-    		System.out.println(element);
-    	}
-    	Iterator<String> s=d.iterator();
-    	while(s.hasNext())
-    	{
-    		String element= s.next();
-    		System.out.println(element);
-    	}
+    	System.out.println(st.hasNext());
+    	System.out.println(st.hasNext());
+    	System.out.println(st.hasNext());
+    	System.out.println(st.hasNext());
+
+    	
+    	
     }
  }
