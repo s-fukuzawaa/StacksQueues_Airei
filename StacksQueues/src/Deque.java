@@ -156,12 +156,14 @@ public class Deque<Item> implements Iterable<Item>
 		public boolean hasNext() {
 			// TODO Auto-generated method stub
 		
+			boolean i=true;
 			if(current==null)
 			{
-				return false;
+				i=false;
+				throw new java.util.NoSuchElementException();
 			}
 			
-			return true;
+			return i;
 		}
 
 		@Override
