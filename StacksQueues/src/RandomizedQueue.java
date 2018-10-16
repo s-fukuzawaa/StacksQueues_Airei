@@ -1,35 +1,72 @@
 import java.util.Iterator;
 
+
 public class RandomizedQueue<Item> implements Iterable<Item>
 {
+	private int count;
+	private int size;
+	private Item[] a;
+	
     public RandomizedQueue()
     {
-        throw new UnsupportedOperationException();
+        this.a=(Item[]) new Object[1];
+        this.size=1;
     }
     
     public boolean isEmpty()
     {
-        throw new UnsupportedOperationException();
+        if(a==null)
+        {
+        	return true;
+        }
+        return false;
     }
     
     public int size()
     {
-        throw new UnsupportedOperationException();
+        return size;
     }
     
     public void enqueue(Item item)
     {
-        throw new UnsupportedOperationException();
+        if(item==null)
+        {
+        	throw new java.lang.NullPointerException();
+        }
+        else if(size==1)
+        {
+        	a[0]=item;
+        }
+        else 
+        {
+        	if()
+        }
+        size++;
     }
     
     public Item dequeue()
     {
-        throw new UnsupportedOperationException();
+        if(a==null)
+        {
+        	throw new java.util.NoSuchElementException();
+        }
+        else
+        {
+        	
+        }
+        size--;
     }
     
     public Item sample()
     {
-        throw new UnsupportedOperationException();
+        if(a==null)
+        {
+        	throw new java.util.NoSuchElementException();
+        }
+        else
+        {
+        	return a[StdRandom.uniform(a.length)];
+        }
     }
     
     public Iterator<Item> iterator()
