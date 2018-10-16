@@ -156,19 +156,21 @@ public class Deque<Item> implements Iterable<Item>
 		public boolean hasNext() {
 			// TODO Auto-generated method stub
 		
-			boolean i=true;
 			if(current==null)
 			{
-				i=false;
-				throw new java.util.NoSuchElementException();
+				return false;
 			}
 			
-			return i;
+			return true;
 		}
 
 		@Override
 		public Item next() {
 			// TODO Auto-generated method stub
+			if(current==null)
+			{
+				throw new java.util.NoSuchElementException();
+			}
 			Item i=current.item;
 				current=current.next;
 				return i;
@@ -190,11 +192,12 @@ public class Deque<Item> implements Iterable<Item>
     	d.addLast("Ariana");
     	d.addLast("Grande");
 
-    	Iterator<String> st=d.iterator();
-    	System.out.println(st.hasNext());
-    	System.out.println(st.hasNext());
-    	System.out.println(st.hasNext());
-    	System.out.println(st.hasNext());
+    	 Iterator<String> st = d.iterator();
+         while (st.hasNext())
+         {
+         	String element = st.next();
+         	System.out.println(element);
+         }
 
     	
     	
