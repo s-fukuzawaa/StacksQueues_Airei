@@ -39,9 +39,18 @@ public class RandomizedQueue<Item> implements Iterable<Item>
         }
         else 
         {
-        	if()
+        	if(size==a.length)
+        	{
+        		resizeEnqueue(size,StdRandom.uniform(size));
+        		
+        	}
         }
         size++;
+    }
+    
+    private void resizeEnqueue(int s,int loc)
+    {
+    	s>=size
     }
     
     public Item dequeue()
