@@ -33,7 +33,7 @@ public class RandomizedQueue<Item> implements Iterable<Item>
         {
         	throw new java.lang.NullPointerException();
         }
-        else if(size==1)
+        else if(size==1&&a[0]==null)
         {
         	a[0]=item;
         }
@@ -51,22 +51,32 @@ public class RandomizedQueue<Item> implements Iterable<Item>
         		resizeEnqueue(size,loc);
         	}
     		a[loc]=item;
-
+            size++;
         }
-        size++;
     }
     
     private void resizeEnqueue(int s,int loc)
     {
     	Item[] temp=(Item[]) new Object[s];
-    	for(int i=0; i<loc; i++)
+    	if(loc==0)
     	{
-    		temp[i]=a[i];
+    		for(int i=1; i<a.length+1; i++)
+    		{
+    			temp[i]=a[i-1];
+    		}
     	}
-    	for(int j=loc+1; j<a.length; j++)
+    	else
     	{
-    		temp[j]=a[j];
+    		for(int i=0; i<loc; i++)
+    		{
+        		temp[i]=a[i];
+        	}
+        	for(int j=loc+1; j<a.length+1; j++)
+        	{
+        		temp[j]=a[j-1];
+        	}
     	}
+    	
     	a=temp;
     			
     }
@@ -103,7 +113,7 @@ public class RandomizedQueue<Item> implements Iterable<Item>
     	{
     		temp[i]=a[i];
     	}
-    	for(int j=loc; j<a.length; j++)
+    	for(int j=loc; j<a.length-2; j++)
     	{
     		temp[j]=a[j+1];
     	}
@@ -125,5 +135,17 @@ public class RandomizedQueue<Item> implements Iterable<Item>
     public Iterator<Item> iterator()
     {
         throw new UnsupportedOperationException();
+    }
+    
+    public static void main(String[] args)
+    {
+    	RandomizedQueue r= new RandomizedQueue();
+    	r.enqueue("No");
+    	r.enqueue("tears");
+    	r.enqueue("left");
+    	r.enqueue("to");
+    	r.enqueue("cry");
+    	r.dequeue();
+    	r.dequeue();
     }
 }
