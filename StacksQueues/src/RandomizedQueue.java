@@ -65,7 +65,7 @@ public class RandomizedQueue<Item> implements Iterable<Item>
     {
     	Item[] temp=(Item[]) new Object[s];
     	int count=0;
-    	for(int i=0; i<size; i++)
+    	for(int i=0; i<size+1; i++)
     		{
     			if(i==loc)
     			{
