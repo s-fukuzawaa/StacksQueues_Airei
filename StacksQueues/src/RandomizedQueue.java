@@ -33,7 +33,13 @@ public class RandomizedQueue<Item> implements Iterable<Item>
         {
         	throw new java.lang.NullPointerException();
         }
-        else if(size==1&&a[0]==null)
+
+    	if(size==0)
+    	{
+    		size++;
+    	}
+        
+        if(size==1&&a[0]==null)
         {
         	a[0]=item;
         }
@@ -87,13 +93,15 @@ public class RandomizedQueue<Item> implements Iterable<Item>
         	if(size>0 && size==a.length/4)
         	{
         		resizeDequeue(a.length/2,loc);
+
         	}
-        	else
+        	else if(size>0)
         	{
         		resizeDequeue(size,loc);
-        	}
 
+        	}
             size--;
+
             return i;
         }
     }
@@ -132,11 +140,14 @@ public class RandomizedQueue<Item> implements Iterable<Item>
     {
     	RandomizedQueue r= new RandomizedQueue();
     	r.enqueue("No");
-    	r.enqueue("tears");
+    	/*r.enqueue("tears");
     	r.enqueue("left");
     	r.enqueue("to");
-    	r.enqueue("cry");
-    	r.dequeue();
-    	r.dequeue();
+    	r.enqueue("cry");*/
+    	System.out.println(r.dequeue());
+    	//r.dequeue();
+
+    	r.enqueue("Ariana");
+    	r.enqueue("Grande");
     }
 }
