@@ -43,12 +43,12 @@ public class RandomizedQueue<Item> implements Iterable<Item>
 
         	if(size==a.length)
         	{
-        		resizeEnqueue(2*size,loc);
+        		resizeEnqueue(2*(size),loc);
         	}
         	
         	else
         	{
-        		resizeEnqueue(size,loc);
+        		resizeEnqueue(a.length+1,loc);
         	}
     		a[loc]=item;
             size++;
@@ -58,16 +58,7 @@ public class RandomizedQueue<Item> implements Iterable<Item>
     private void resizeEnqueue(int s,int loc)
     {
     	Item[] temp=(Item[]) new Object[s];
-    	if(loc==0)
-    	{
-    		for(int i=1; i<a.length+1; i++)
-    		{
-    			temp[i]=a[i-1];
-    		}
-    	}
-    	else
-    	{
-    		for(int i=0; i<loc; i++)
+    	for(int i=0; i<loc; i++)
     		{
         		temp[i]=a[i];
         	}
@@ -75,7 +66,7 @@ public class RandomizedQueue<Item> implements Iterable<Item>
         	{
         		temp[j]=a[j-1];
         	}
-    	}
+    	
     	
     	a=temp;
     			
