@@ -15,7 +15,7 @@ public class RandomizedQueue<Item> implements Iterable<Item>
     
     public boolean isEmpty()
     {
-        if(a==null)
+        if(a[0]==null)
         {
         	return true;
         }
@@ -83,7 +83,7 @@ public class RandomizedQueue<Item> implements Iterable<Item>
     
     public Item dequeue()
     {
-        if(a==null)
+        if(a[0]==null)
         {
         	throw new java.util.NoSuchElementException();
         }
@@ -150,8 +150,18 @@ public class RandomizedQueue<Item> implements Iterable<Item>
     	//r.dequeue();
     	r.enqueue("Ariana");
     	r.enqueue("Grande");
-    	System.out.println(r.sample());
-    	System.out.println(r.sample());
+    	
+    	System.out.println(r.dequeue());
+    	System.out.println(r.dequeue());
+    	System.out.println(r.dequeue());
+    	System.out.println(r.dequeue());
+    	System.out.println(r.dequeue());
+    	System.out.println(r.dequeue());
+    	System.out.println(r.dequeue());
+    	System.out.println(r.dequeue());
+
+
+    	
 
     }
 }
