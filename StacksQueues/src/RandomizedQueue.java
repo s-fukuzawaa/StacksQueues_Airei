@@ -145,7 +145,7 @@ public class RandomizedQueue<Item> implements Iterable<Item>
     	r.enqueue("No");
     	r.enqueue("tears");
     	r.enqueue("left");
-    	r.enqueue("to");
+    	r.enqueue("to");//
     	r.enqueue("cry");
     	//r.dequeue();
     	r.enqueue("Ariana");
