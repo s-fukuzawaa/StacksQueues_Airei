@@ -85,7 +85,7 @@ public class RandomizedQueue<Item> implements Iterable<Item>
     {
         if(a[0]==null)
         {
-        	throw new java.util.NoSuchElementException();
+        	throw new java.util.NoSuchElementException();//
         }
         else
         {
