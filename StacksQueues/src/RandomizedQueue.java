@@ -116,7 +116,7 @@ public class RandomizedQueue<Item> implements Iterable<Item>
         		temp=temp2;
         		temp2=a[j+2];
         	}
-        	a[size]=null;
+        	a[size-1]=null;
             size--;
             return i;
         }
