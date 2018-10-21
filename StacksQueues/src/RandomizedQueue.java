@@ -3,7 +3,6 @@ import java.util.Iterator;
 
 public class RandomizedQueue<Item> implements Iterable<Item>
 {
-	private int count;
 	private int size;
 	private Item[] a;
 	
@@ -111,13 +110,15 @@ public class RandomizedQueue<Item> implements Iterable<Item>
     private void resizeDequeue(int s, int loc)
     {
     	Item[] temp=(Item[]) new Object[s];
-    	for(int i=0; i<loc; i++)
+    	int count=0;
+    	for(int i=0; i<temp.length-1; i++)
     	{
-    		temp[i]=a[i];
-    	}
-    	for(int j=loc; j<a.length-2; j++)
-    	{
-    		temp[j]=a[j+1];
+    		if(i==loc)
+    		{
+    			count++;
+    		}
+    		temp[i]=a[count];
+    		count++;
     	}
     	a=temp;
     			
@@ -154,13 +155,16 @@ public class RandomizedQueue<Item> implements Iterable<Item>
     	System.out.println(r.dequeue());
     	System.out.println(r.dequeue());
     	System.out.println(r.dequeue());
-    	System.out.println(r.dequeue());
-    	System.out.println(r.dequeue());
-    	System.out.println(r.dequeue());
-    	System.out.println(r.dequeue());
-    	System.out.println(r.dequeue());
 
+    	/*System.out.println(r.dequeue());
+    	System.out.println(r.dequeue());
+    	System.out.println(r.dequeue());
+    	System.out.println(r.dequeue());
+    	System.out.println(r.dequeue());*/
 
+    	r.enqueue("A");
+    	System.out.println(r.dequeue());
+    	
     	
 
     }
