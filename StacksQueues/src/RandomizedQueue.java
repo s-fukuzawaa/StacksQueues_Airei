@@ -85,6 +85,14 @@ public class RandomizedQueue<Item> implements Iterable<Item>
         {
         	throw new java.util.NoSuchElementException();//
         }
+        if(size==1)
+        {
+        	Item i=a[0];
+        	a[0]=null;
+
+            size--;
+            return i;
+        }
         else
         {
         	int loc=StdRandom.uniform(size);
@@ -141,16 +149,19 @@ public class RandomizedQueue<Item> implements Iterable<Item>
     {
     	RandomizedQueue r= new RandomizedQueue();
     	r.enqueue("No");
-    	r.enqueue("tears");
+    	/*r.enqueue("tears");
     	r.enqueue("left");
     	r.enqueue("to");////
     	r.enqueue("cry");
     	//r.dequeue();
     	r.enqueue("Ariana");
-    	r.enqueue("Grande");
+    	r.enqueue("Grande");*/
     	
     	r.dequeue();
-    	r.dequeue();
+    	//r.dequeue();
+
+    	r.enqueue("Ar");
+    	r.enqueue("Gr");
     	r.dequeue();
 
     	
