@@ -91,9 +91,15 @@ public class RandomizedQueue<Item> implements Iterable<Item>
 
         	Item i=a[loc];
         	a[loc]=null;
-        	resizeDequeue(size,loc);
-
+        	if(size==a.length)
+        	{
+        		resizeDequeue(size-1,loc);
+        	}
         	
+        	else
+        	{
+        		resizeDequeue(a.length,loc);
+        	}
             size--;
             return i;
         }
@@ -102,7 +108,7 @@ public class RandomizedQueue<Item> implements Iterable<Item>
     {
     	Item[] temp=(Item[]) new Object[s];
     	int count=0;
-    	for(int i=0; i<temp.length-1; i++)
+    	for(int i=0; i<size-1; i++)
     	{
     		if(i==loc)
     		{
@@ -143,9 +149,9 @@ public class RandomizedQueue<Item> implements Iterable<Item>
     	r.enqueue("Ariana");
     	r.enqueue("Grande");
     	
-    	//System.out.println(r.dequeue());
-    	//System.out.println(r.dequeue());
-    	//System.out.println(r.dequeue());
+    	r.dequeue();
+    	r.dequeue();
+    	r.dequeue();
 
     	
 
