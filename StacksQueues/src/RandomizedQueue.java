@@ -8,7 +8,7 @@ public class RandomizedQueue<Item> implements Iterable<Item>
 	
     public RandomizedQueue()
     {
-        this.a=(Item[]) new Object[1];
+        this.a=(Item[]) new Object[2];
     }
     
     public boolean isEmpty()
@@ -47,33 +47,33 @@ public class RandomizedQueue<Item> implements Iterable<Item>
 
         	if(size==a.length)
         	{
-        		resizeEnqueue(size+1,loc);
+        		resize(2*size);
         	}
-        	
-        	else
+    		Item temp=a[loc];
+    		Item temp2=a[loc+1];
+        	for(int i=loc+1;i<a.length; i++)
         	{
-        		resizeEnqueue(a.length,loc);
+        		a[i]=temp;
+        		if(i+1==a.length)
+        		{
+        			break;
+        		}
+        		temp=temp2;
+        		temp2=a[i+1];
         	}
-    		a[loc]=item;
+        	a[loc]=item;
             size++;
         }
     }
     
-    private void resizeEnqueue(int s,int loc)
+    private void resize(int s)
     {
     	Item[] temp=(Item[]) new Object[s];
-    	int count=0;
-    	for(int i=0; i<size+1; i++)
-    		{
-    			if(i==loc)
-    			{
-    				i++;
-    			}
+    	for(int i=0; i<size; i++)
+    	{
+    		temp[i]=a[i];	
     			
-    				temp[i]=a[count];
-    				count++;
-    			
-        	}
+        }
     	
     	a=temp;
     			
@@ -99,35 +99,29 @@ public class RandomizedQueue<Item> implements Iterable<Item>
 
         	Item i=a[loc];
         	a[loc]=null;
-        	if(size==a.length)
+        	if(size>0&&size==a.length/4)
         	{
-        		resizeDequeue(size-1,loc);
+        		resize(a.length/2);
         	}
         	
-        	else
+        	Item temp=a[loc+1];
+    		Item temp2=a[loc+2];
+        	for(int j=loc+1;j<a.length; j++)
         	{
-        		resizeDequeue(a.length,loc);
+        		a[j-1]=temp;
+        		if(j+2==a.length)
+        		{
+        			break;
+        		}
+        		temp=temp2;
+        		temp2=a[j+2];
         	}
+        	a[size]=null;
             size--;
             return i;
         }
     }
-    private void resizeDequeue(int s, int loc)
-    {
-    	Item[] temp=(Item[]) new Object[s];
-    	int count=0;
-    	for(int i=0; i<size-1; i++)
-    	{
-    		if(i==loc)
-    		{
-    			count++;
-    		}
-    		temp[i]=a[count];
-    		count++;
-    	}
-    	a=temp;
-    			
-    }
+ 
     public Item sample()
     {
         if(size==0)
@@ -149,19 +143,16 @@ public class RandomizedQueue<Item> implements Iterable<Item>
     {
     	RandomizedQueue r= new RandomizedQueue();
     	r.enqueue("No");
-    	/*r.enqueue("tears");
+    	r.enqueue("tears");
     	r.enqueue("left");
     	r.enqueue("to");////
     	r.enqueue("cry");
     	//r.dequeue();
     	r.enqueue("Ariana");
-    	r.enqueue("Grande");*/
+    	r.enqueue("Grande");
     	
     	r.dequeue();
-    	//r.dequeue();
-
-    	r.enqueue("Ar");
-    	r.enqueue("Gr");
+    	r.dequeue();
     	r.dequeue();
 
     	
