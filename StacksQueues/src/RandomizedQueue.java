@@ -124,7 +124,7 @@ public class RandomizedQueue<Item> implements Iterable<Item>
     }
     public Item sample()
     {
-        if(a==null)
+        if(size==0)
         {
         	throw new java.util.NoSuchElementException();
         }
@@ -142,32 +142,32 @@ public class RandomizedQueue<Item> implements Iterable<Item>
     public static void main(String[] args)
     {
     	RandomizedQueue r= new RandomizedQueue();
-    	r.enqueue("No");
-    	r.enqueue("tears");
+    	//r.enqueue("No");
+    	/*r.enqueue("tears");
     	r.enqueue("left");
     	r.enqueue("to");////
     	r.enqueue("cry");
     	//r.dequeue();
     	r.enqueue("Ariana");
-    	r.enqueue("Grande");
+    	r.enqueue("Grande");*/
     	
     	//System.out.println(r.dequeue());
     	//System.out.println(r.dequeue());
     	//System.out.println(r.dequeue());
 
-    	System.out.println(r.dequeue());
-    	System.out.println(r.dequeue());
-    	System.out.println(r.dequeue());
-    	System.out.println(r.dequeue());
-    	System.out.println(r.dequeue());
+    	System.out.println(r.sample());    	System.out.println(r.sample());
+    	System.out.println(r.sample());
+    	System.out.println(r.sample());
+    	System.out.println(r.sample());
+    	System.out.println(r.sample());
+    	System.out.println(r.sample());
+    	System.out.println(r.sample());
+    	System.out.println(r.sample());
+    	System.out.println(r.sample());
+    	System.out.println(r.sample());
+
 
     	r.enqueue("A");
-    	System.out.println(r.dequeue());
-
-    	System.out.println(r.dequeue());
-    	System.out.println(r.dequeue());
-
-    	System.out.println(r.isEmpty());
 
 
 
