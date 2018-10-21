@@ -81,7 +81,7 @@ public class RandomizedQueue<Item> implements Iterable<Item>
     
     public Item dequeue()
     {
-        if(a[0]==null)
+        if(size==0)
         {
         	throw new java.util.NoSuchElementException();//
         }
@@ -91,16 +91,13 @@ public class RandomizedQueue<Item> implements Iterable<Item>
 
         	Item i=a[loc];
         	a[loc]=null;
-        	if(size>0 && size==a.length/4)
+        	/*if(size>0 && size==a.length/4)
         	{
         		resizeDequeue(a.length/2,loc);
 
-        	}
-        	else if(size>0)
-        	{
-        		resizeDequeue(size,loc);
+        	}*/resizeDequeue(size,loc);
 
-        	}
+        	
             size--;
             return i;
         }
