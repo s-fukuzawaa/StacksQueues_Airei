@@ -34,7 +34,7 @@ public class RandomizedQueue<Item> implements Iterable<Item>
 
     	if(size==0)
     	{
-    		size++;
+    		size=1;
     	}
         
         if(size==1&&a[0]==null)
@@ -47,7 +47,7 @@ public class RandomizedQueue<Item> implements Iterable<Item>
 
         	if(size==a.length)
         	{
-        		resizeEnqueue(2*(size),loc);
+        		resizeEnqueue(size+1,loc);
         	}
         	
         	else
@@ -91,11 +91,7 @@ public class RandomizedQueue<Item> implements Iterable<Item>
 
         	Item i=a[loc];
         	a[loc]=null;
-        	/*if(size>0 && size==a.length/4)
-        	{
-        		resizeDequeue(a.length/2,loc);
-
-        	}*/resizeDequeue(size,loc);
+        	resizeDequeue(size,loc);
 
         	
             size--;
@@ -138,29 +134,20 @@ public class RandomizedQueue<Item> implements Iterable<Item>
     public static void main(String[] args)
     {
     	RandomizedQueue r= new RandomizedQueue();
-    	//r.enqueue("No");
-    	/*r.enqueue("tears");
+    	r.enqueue("No");
+    	r.enqueue("tears");
     	r.enqueue("left");
     	r.enqueue("to");////
     	r.enqueue("cry");
     	//r.dequeue();
     	r.enqueue("Ariana");
-    	r.enqueue("Grande");*/
+    	r.enqueue("Grande");
     	
     	//System.out.println(r.dequeue());
     	//System.out.println(r.dequeue());
     	//System.out.println(r.dequeue());
 
-    	System.out.println(r.sample());    	System.out.println(r.sample());
-    	System.out.println(r.sample());
-    	System.out.println(r.sample());
-    	System.out.println(r.sample());
-    	System.out.println(r.sample());
-    	System.out.println(r.sample());
-    	System.out.println(r.sample());
-    	System.out.println(r.sample());
-    	System.out.println(r.sample());
-    	System.out.println(r.sample());
+    	
 
 
     	r.enqueue("A");
