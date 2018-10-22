@@ -32,12 +32,12 @@ public class RandomizedQueue<Item> implements Iterable<Item>
         	throw new java.lang.NullPointerException();
         }
 
-    	if(size==0)
+        if(size==0)
     	{
     		size=1;
     	}
         
-        if(size==1&&a[0]==null)
+    	else if(size==1&&a[0]==null)
         {
         	a[0]=item;
         }
@@ -105,7 +105,7 @@ public class RandomizedQueue<Item> implements Iterable<Item>
         		size--;
         		return i;
         	}
-        	if(size>0&&size==a.length/4)
+        	else if(size==a.length/4)
         	{
         		resize(a.length/2);
         	}
@@ -165,7 +165,8 @@ public class RandomizedQueue<Item> implements Iterable<Item>
     	r.dequeue();
     	r.dequeue();
     	r.dequeue();
-    	r.dequeue();
+    	r.enqueue("c");
+
 
 
 
