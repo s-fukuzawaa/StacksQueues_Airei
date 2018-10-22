@@ -96,7 +96,7 @@ public class RandomizedQueue<Item> implements Iterable<Item>
         	{
         		resize(a.length/2);
         	}
-        	a[loc]=a[size-1];
+        	a[loc]=a[size-1];//
         	a[size-1]=null;
             size--;
             return i;
