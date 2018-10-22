@@ -43,25 +43,12 @@ public class RandomizedQueue<Item> implements Iterable<Item>
         }
         else 
         {
-    		int loc=StdRandom.uniform(size);
-
         	if(size==a.length)
         	{
         		resize(2*size);
         	}
-    		Item temp=a[loc];
-    		Item temp2=a[loc+1];
-        	for(int i=loc+1;i<a.length; i++)
-        	{
-        		a[i]=temp;
-        		if(i+1==a.length)
-        		{
-        			break;
-        		}
-        		temp=temp2;
-        		temp2=a[i+1];
-        	}
-        	a[loc]=item;
+        	
+        	a[size]=item;
             size++;
         }
     }
@@ -99,9 +86,9 @@ public class RandomizedQueue<Item> implements Iterable<Item>
         	
         	
         	Item i=a[loc];
-        	a[loc]=null;
         	if(loc==size-1)
         	{
+        		a[loc]=null;
         		size--;
         		return i;
         	}
@@ -109,17 +96,7 @@ public class RandomizedQueue<Item> implements Iterable<Item>
         	{
         		resize(a.length/2);
         	}
-        	
-        	Item temp=a[loc+1];
-        	for(int j=loc+1;j<a.length; j++)
-        	{
-        		a[j-1]=temp;
-        		if(j+1==a.length)
-        		{
-        			break;
-        		}
-        		temp=a[j+1];
-        	}
+        	a[loc]=a[size-1];
         	a[size-1]=null;
             size--;
             return i;
@@ -147,13 +124,13 @@ public class RandomizedQueue<Item> implements Iterable<Item>
     {
     	RandomizedQueue r= new RandomizedQueue();
     	//r.enqueue("No");
-    	/*r.enqueue("tears");
+    	r.enqueue("tears");
     	r.enqueue("left");
     	r.enqueue("to");////
     	r.enqueue("cry");
     	//r.dequeue();
     	r.enqueue("Ariana");
-    	r.enqueue("Grande");*/
+    	r.enqueue("Grande");
 
 
 
