@@ -96,9 +96,13 @@ public class RandomizedQueue<Item> implements Iterable<Item>
         else
         {
         	int loc=StdRandom.uniform(size);
-
+        	
         	Item i=a[loc];
         	a[loc]=null;
+        	if(loc==size-1)
+        	{
+        		return i;
+        	}
         	if(size>0&&size==a.length/4)
         	{
         		resize(a.length/2);
@@ -148,31 +152,14 @@ public class RandomizedQueue<Item> implements Iterable<Item>
     	//r.dequeue();
     	r.enqueue("Ariana");
     	r.enqueue("Grande");*/
-    	
-    	r.dequeue();
-    	r.dequeue();
-    	r.dequeue();
-
-    	r.dequeue();
-    	r.dequeue();
-
-    	r.dequeue();
-    	r.dequeue();  	
-    	
 
 
     	r.enqueue("A");
-
     	r.enqueue("Ariana");
-    	r.enqueue("Grande");
 
-    	r.enqueue("tears");
-    	r.enqueue("left");
-    	r.enqueue("to");////
-    	r.enqueue("cry");
-    	
     	r.dequeue();
     	r.dequeue();
+
 
 
 
