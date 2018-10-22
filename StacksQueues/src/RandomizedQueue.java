@@ -37,7 +37,7 @@ public class RandomizedQueue<Item> implements Iterable<Item>
     		size=1;
     	}
         
-    	else if(size==1&&a[0]==null)
+    	if(size==1&&a[0]==null)
         {
         	a[0]=item;
         }
@@ -105,7 +105,7 @@ public class RandomizedQueue<Item> implements Iterable<Item>
         		size--;
         		return i;
         	}
-        	if(size==a.length/4)
+        	else if(size==a.length/4)
         	{
         		resize(a.length/2);
         	}
