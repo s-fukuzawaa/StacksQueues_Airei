@@ -112,6 +112,10 @@ public class RandomizedQueue<Item> implements Iterable<Item>
         	}
         	a[size-1]=null;
             size--;
+            if(size==0)
+            {
+            	a=(Item[]) new Object[2];
+            }
             return i;
         }
     }
@@ -136,14 +140,14 @@ public class RandomizedQueue<Item> implements Iterable<Item>
     public static void main(String[] args)
     {
     	RandomizedQueue r= new RandomizedQueue();
-    	r.enqueue("No");
-    	r.enqueue("tears");
+    	//r.enqueue("No");
+    	/*r.enqueue("tears");
     	r.enqueue("left");
     	r.enqueue("to");////
     	r.enqueue("cry");
     	//r.dequeue();
     	r.enqueue("Ariana");
-    	r.enqueue("Grande");
+    	r.enqueue("Grande");*/
     	
     	r.dequeue();
     	r.dequeue();
@@ -162,6 +166,11 @@ public class RandomizedQueue<Item> implements Iterable<Item>
     	r.enqueue("Ariana");
     	r.enqueue("Grande");
 
+    	r.enqueue("tears");
+    	r.enqueue("left");
+    	r.enqueue("to");////
+    	r.enqueue("cry");
+    	
     	r.dequeue();
     	r.dequeue();
 
