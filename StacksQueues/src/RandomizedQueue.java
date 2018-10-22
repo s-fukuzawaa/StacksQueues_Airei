@@ -95,9 +95,8 @@ public class RandomizedQueue<Item> implements Iterable<Item>
         }
         else
         {
-        	//int loc=StdRandom.uniform(size);
+        	int loc=StdRandom.uniform(size);
         	
-        	int loc=1;
         	
         	Item i=a[loc];
         	a[loc]=null;
