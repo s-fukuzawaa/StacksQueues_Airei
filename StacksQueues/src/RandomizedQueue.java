@@ -1,5 +1,7 @@
 import java.util.Iterator;
 
+import Deque.Node;
+
 
 public class RandomizedQueue<Item> implements Iterable<Item>
 {
@@ -115,9 +117,41 @@ public class RandomizedQueue<Item> implements Iterable<Item>
         }
     }
     
+    private class RandomizedQueueIterator implements Iterator<Item>
+    {
+    	private int random=StdRandom.uniform(size);
+    	private int count=random;
+    	private Item item=a[count];
+		@Override
+		public boolean hasNext() {
+			// TODO Auto-generated method stub
+		
+			if(a[count]==null)
+			{
+				return false;
+			}
+			return true;
+		}
+
+		@Override
+		public Item next() {
+			// TODO Auto-generated method stub
+			if(a[count]==null)
+			{
+				throw new java.util.NoSuchElementException();
+			}
+			Item i=item;
+			count++;
+				item=a[count];
+				return i;
+			
+		}
+    	
+    }
+    
     public Iterator<Item> iterator()
     {
-        throw new UnsupportedOperationException();
+        return new RandomizedQueueIterator();
     }
     
     public static void main(String[] args)
