@@ -1,6 +1,5 @@
 import java.util.Iterator;
 
-import Deque.Node;
 
 
 public class RandomizedQueue<Item> implements Iterable<Item>
