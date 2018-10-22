@@ -105,16 +105,10 @@ public class RandomizedQueue<Item> implements Iterable<Item>
         	}
         	
         	Item temp=a[loc+1];
-    		Item temp2=a[loc+2];
-        	for(int j=loc+1;j<a.length; j++)
+        	for(int j=loc+1;j<a.length-1; j++)
         	{
         		a[j-1]=temp;
-        		if(j+2==a.length)
-        		{
-        			break;
-        		}
-        		temp=temp2;
-        		temp2=a[j+2];
+        		temp=a[j+1];
         	}
         	a[size-1]=null;
             size--;
@@ -155,10 +149,21 @@ public class RandomizedQueue<Item> implements Iterable<Item>
     	r.dequeue();
     	r.dequeue();
 
+    	r.dequeue();
+    	r.dequeue();
+
+    	r.dequeue();
+    	r.dequeue();  	
     	
 
 
     	r.enqueue("A");
+
+    	r.enqueue("Ariana");
+    	r.enqueue("Grande");
+
+    	r.dequeue();
+    	r.dequeue();
 
 
 
