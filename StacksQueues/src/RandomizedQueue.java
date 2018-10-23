@@ -118,14 +118,22 @@ public class RandomizedQueue<Item> implements Iterable<Item>
     
     private class RandomizedQueueIterator implements Iterator<Item>
     {
-    	private int random=StdRandom.uniform(size);
-    	private int count=random;
-    	private Item item=a[count];
-		@Override
+    	private Item[] iterate;
+    	private int count;
+		//@Override
+		public RandomizedQueueIterator()
+		{
+			iterate= (Item[]) new Object[size];
+			for(int i=0; i<size; i++)
+			{
+				iterate[i]=a[i];
+			}
+			StdRandom.shuffle(iterate);
+		}
 		public boolean hasNext() {
 			// TODO Auto-generated method stub
 		
-			if(a[count]==null)
+			if(count==size-1)
 			{
 				return false;
 			}
@@ -139,9 +147,8 @@ public class RandomizedQueue<Item> implements Iterable<Item>
 			{
 				throw new java.util.NoSuchElementException();
 			}
-			Item i=item;
+			Item i=a[count];
 			count++;
-				item=a[count];
 				return i;
 			
 		}
@@ -170,13 +177,18 @@ public class RandomizedQueue<Item> implements Iterable<Item>
     	r.enqueue("Ariana");
     	r.enqueue("b");
     	r.enqueue("c");
-
-
-    	r.dequeue();
-    	r.dequeue();
-    	r.dequeue();
-    	r.enqueue("c");
-
+    	Iterator<String> st = r.iterator();
+        while (st.hasNext())
+        {
+        	String element = st.next();
+        	System.out.println(element);
+        }
+        Iterator<String> st2 = r.iterator();
+        while (st2.hasNext())
+        {
+        	String element = st2.next();
+        	System.out.println(element);
+        }
 
 
 
