@@ -133,7 +133,7 @@ public class RandomizedQueue<Item> implements Iterable<Item>
 		public boolean hasNext() {
 			// TODO Auto-generated method stub
 		
-			if(count==size-1)
+			if(count==size)
 			{
 				return false;
 			}
